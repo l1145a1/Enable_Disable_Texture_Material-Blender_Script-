@@ -1,0 +1,22 @@
+import bpy
+
+def toggle_textures(enable):
+    # Ambil objek yang sedang dipilih
+    selected_object = bpy.context.active_object
+
+    if selected_object:
+        for material_slot in selected_object.material_slots:
+            material = material_slot.material
+
+            for texture_slot in material.texture_slots:
+                if texture_slot and texture_slot.texture:
+                    texture_slot.use = enable
+
+def main():
+    # Ganti dengan kondisi yang kamu inginkan (True untuk enable, False untuk disable)
+    enable_textures = True
+
+    toggle_textures(enable_textures)
+
+if __name__ == "__main__":
+    main()
